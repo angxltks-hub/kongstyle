@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kong Style</title>
 
-<!-- FUENTE ELEGANTE -->
+<!-- Fuente elegante tipo Times -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -16,12 +16,13 @@
   --gris: #1a1a1a;
 }
 
+/* ================= ANIMACIONES ================= */
+
 @keyframes float {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
 
-/* Animación modal elegante */
 @keyframes modalIn {
   from {
     opacity: 0;
@@ -32,6 +33,27 @@
     transform: translateY(0) scale(1);
   }
 }
+
+/* Animación final (entrada de página) */
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideFocusIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ================= ESTILOS GENERALES ================= */
 
 body {
   margin: 0;
@@ -57,6 +79,17 @@ body {
   width: 100%;
 }
 
+/* Animación final aplicada */
+.page-enter {
+  animation: fadeScaleIn 1.1s ease forwards;
+}
+
+.title-enter {
+  animation: slideFocusIn 0.9s ease forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
 .mascota {
   width: 190px;
   animation: float 3s ease-in-out infinite;
@@ -75,7 +108,8 @@ h1 {
   margin-bottom: 35px;
 }
 
-/* BOTONES SUCURSAL */
+/* ================= BOTONES ================= */
+
 .btn {
   display: block;
   margin: 18px auto;
@@ -96,7 +130,21 @@ h1 {
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* MODAL */
+/* ================= NOTAS ================= */
+
+.notes {
+  margin-top: 30px;
+  font-size: 0.85em;
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+.notes p {
+  margin: 6px 0;
+}
+
+/* ================= MODAL ================= */
+
 .modal {
   display: none;
   position: fixed;
@@ -127,7 +175,7 @@ h1 {
   font-size: 1.4em;
 }
 
-/* TARJETAS DE ENLACE */
+/* Tarjetas */
 .card {
   background: var(--gris);
   padding: 14px;
@@ -158,31 +206,33 @@ h1 {
 
 <body>
 <div class="overlay">
-  <div class="container">
+  <div class="container page-enter">
 
     <img src="kongg.png" class="mascota" alt="Kong Style">
-    <h1>KONG STYLE</h1>
+
+    <h1 class="title-enter">KONG STYLE</h1>
     <div class="subtitle">High Unisex Streetwear</div>
 
     <button class="btn" onclick="openModal('zacatelco')">Sucursal Zacatelco</button>
     <button class="btn" onclick="openModal('puebla')">Sucursal China Poblana</button>
-    
+
     <div class="notes">
-  <p>ℹ️ Haz clic en los enlaces para más información</p>
-  <p>🛍️ Mayoreo y menudeo</p>
-  <p>✔️ Originales y G5</p>
+      <p>ℹ️ Haz clic en los enlaces para más información</p>
+      <p>🛍️ Mayoreo y menudeo</p>
+      <p>✔️ Originales y G5</p>
+    </div>
+
   </div>
+</div>
 
 <!-- MODAL ZACATELCO -->
 <div id="zacatelco" class="modal">
   <div class="modal-content">
     <h2>Zacatelco</h2>
-
     <div class="card"><a href="tel:+522463335286">📞 +52 246 333 5286</a></div>
     <div class="card"><a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" target="_blank">📍 Ver en Maps</a></div>
     <div class="card"><a href="https://www.instagram.com/kong_styletlax" target="_blank">Instagram</a></div>
     <div class="card"><a href="https://www.tiktok.com/@kstlax" target="_blank">TikTok</a></div>
-
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
@@ -191,12 +241,10 @@ h1 {
 <div id="puebla" class="modal">
   <div class="modal-content">
     <h2>China Poblana</h2>
-
     <div class="card"><a href="tel:+522221171466">📞 +52 222 117 1466</a></div>
     <div class="card"><a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" target="_blank">📍 Ver en Maps</a></div>
     <div class="card"><a href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a></div>
     <div class="card"><a href="https://www.tiktok.com/@ks.pue" target="_blank">TikTok</a></div>
-
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
@@ -208,14 +256,8 @@ function openModal(id) {
 
 function closeModal() {
   document.querySelectorAll('.modal').forEach(m => m.classList.remove('show'));
-  
-  .notes {
-  margin-top: 30px;
-  font-size: 0.85em;
-  opacity: 0.75;
-  line-height: 1.6;
 }
+</script>
 
-.notes p {
-  margin: 6px 0;
-  }
+</body>
+</html>
