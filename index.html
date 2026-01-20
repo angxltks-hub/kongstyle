@@ -5,17 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kong Style</title>
 
+<!-- FUENTE ELEGANTE -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+:root {
+  --verde: #6fae7b;
+  --verde-oscuro: #3e6f4a;
+  --negro: #0e0e0e;
+  --gris: #1a1a1a;
 }
 
-@keyframes glow {
-  0% { text-shadow: 0 0 5px #6bff6b; }
-  50% { text-shadow: 0 0 18px #1aff1a; }
-  100% { text-shadow: 0 0 5px #6bff6b; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Animación modal elegante */
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 body {
@@ -23,12 +38,12 @@ body {
   min-height: 100vh;
   background: url('fondo-kong.jpg') no-repeat center center fixed;
   background-size: cover;
-  font-family: Arial, sans-serif;
-  color: white;
+  font-family: 'Playfair Display', serif;
+  color: #f1f1f1;
 }
 
 .overlay {
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.7);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -43,41 +58,42 @@ body {
 }
 
 .mascota {
-  width: 200px;
+  width: 190px;
   animation: float 3s ease-in-out infinite;
 }
 
 h1 {
+  margin: 10px 0 5px;
   font-size: 2.6em;
-  letter-spacing: 2px;
-  animation: glow 2.5s infinite;
+  letter-spacing: 1px;
+  color: var(--verde);
 }
 
 .subtitle {
-  opacity: 0.85;
-  margin-bottom: 30px;
+  font-size: 0.95em;
+  opacity: 0.75;
+  margin-bottom: 35px;
 }
 
+/* BOTONES SUCURSAL */
 .btn {
   display: block;
-  margin: 15px auto;
+  margin: 18px auto;
   padding: 16px;
   width: 100%;
   max-width: 300px;
-  background: linear-gradient(135deg, #1aff1a, #0b7d0b);
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 40px;
-  box-shadow: 0 0 18px rgba(26,255,26,0.6);
+  background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+  color: #0b0b0b;
+  font-weight: 600;
+  border-radius: 35px;
   border: none;
   cursor: pointer;
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(26,255,26,1);
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
 /* MODAL */
@@ -85,38 +101,56 @@ h1 {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.75);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
+.modal.show {
+  display: flex;
+}
+
 .modal-content {
-  background: #0f0f0f;
-  padding: 25px;
-  border-radius: 20px;
+  background: var(--negro);
+  padding: 26px;
+  border-radius: 22px;
   width: 90%;
   max-width: 360px;
-  text-align: center;
-  box-shadow: 0 0 30px rgba(26,255,26,0.6);
+  animation: modalIn 0.35s ease;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
 }
 
 .modal-content h2 {
-  color: #7CFF7C;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  color: var(--verde);
+  font-size: 1.4em;
 }
 
-.modal-content a {
-  display: block;
-  margin: 10px 0;
-  color: #1aff1a;
+/* TARJETAS DE ENLACE */
+.card {
+  background: var(--gris);
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  background: #202020;
+  transform: translateY(-2px);
+}
+
+.card a {
+  color: #cfe6d4;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .close {
-  margin-top: 15px;
-  color: #ff6b6b;
+  margin-top: 16px;
+  font-size: 0.9em;
+  color: #b57a7a;
   cursor: pointer;
 }
 </style>
@@ -130,21 +164,25 @@ h1 {
     <h1>KONG STYLE</h1>
     <div class="subtitle">High Unisex Streetwear</div>
 
-    <!-- BOTONES SUCURSALES -->
     <button class="btn" onclick="openModal('zacatelco')">Sucursal Zacatelco</button>
     <button class="btn" onclick="openModal('puebla')">Sucursal China Poblana</button>
-
+    
+    <div class="notes">
+  <p>ℹ️ Haz clic en los enlaces para más información</p>
+  <p>🛍️ Mayoreo y menudeo</p>
+  <p>✔️ Originales y G5</p>
   </div>
-</div>
 
 <!-- MODAL ZACATELCO -->
 <div id="zacatelco" class="modal">
   <div class="modal-content">
     <h2>Zacatelco</h2>
-    <a href="tel:+522463335286">📞 +52 246 333 5286</a>
-    <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" target="_blank">📍 Ver en Maps</a>
-    <a href="https://www.instagram.com/kong_styletlax" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@kstlax" target="_blank">TikTok</a>
+
+    <div class="card"><a href="tel:+522463335286">📞 +52 246 333 5286</a></div>
+    <div class="card"><a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" target="_blank">📍 Ver en Maps</a></div>
+    <div class="card"><a href="https://www.instagram.com/kong_styletlax" target="_blank">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@kstlax" target="_blank">TikTok</a></div>
+
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
@@ -153,23 +191,31 @@ h1 {
 <div id="puebla" class="modal">
   <div class="modal-content">
     <h2>China Poblana</h2>
-    <a href="tel:+522221171466">📞 +52 222 117 1466</a>
-    <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" target="_blank">📍 Ver en Maps</a>
-    <a href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@ks.pue" target="_blank">TikTok</a>
+
+    <div class="card"><a href="tel:+522221171466">📞 +52 222 117 1466</a></div>
+    <div class="card"><a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" target="_blank">📍 Ver en Maps</a></div>
+    <div class="card"><a href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@ks.pue" target="_blank">TikTok</a></div>
+
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
 <script>
 function openModal(id) {
-  document.getElementById(id).style.display = "flex";
+  document.getElementById(id).classList.add('show');
 }
 
 function closeModal() {
-  document.querySelectorAll('.modal').forEach(m => m.style.display = "none");
+  document.querySelectorAll('.modal').forEach(m => m.classList.remove('show'));
+  
+  .notes {
+  margin-top: 30px;
+  font-size: 0.85em;
+  opacity: 0.75;
+  line-height: 1.6;
 }
-</script>
 
-</body>
-</html>
+.notes p {
+  margin: 6px 0;
+  }
