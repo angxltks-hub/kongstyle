@@ -1,215 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KONG STYLE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kong Style | Streetwear</title>
 
-<style>
-.logo-text {
-    position: relative;
-    font-family: 'KongFont', 'Arial Black', Impact, sans-serif;
-    font-size: 3.4rem;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: #eaeaea;
+    <!-- FUENTE PERSONALIZADA (si ya la tienes) -->
+    <!-- Si la fuente que me enviaste es un archivo .ttf, súbelo y usa este bloque -->
+    <style>
+        @font-face {
+            font-family: 'KongFont';
+            src: url('kong-font.ttf') format('truetype');
+        }
+    </style>
 
-    /* Elegancia urbana */
-    background: linear-gradient(
-        120deg,
-        #dcdcdc 20%,
-        #ffffff 40%,
-        #9affc9 50%,
-        #ffffff 60%,
-        #dcdcdc 80%
-    );
-    background-size: 200% auto;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    text-shadow:
-        0 0 10px rgba(0,255,136,0.35),
-        0 0 25px rgba(0,255,136,0.15);
-
-    animation: shineText 4s linear infinite;
-}
-
-/* STYLE en verde más marcado */
-.logo-text span {
-    color: #00ff88;
-    -webkit-text-fill-color: #00ff88;
-    text-shadow:
-        0 0 12px rgba(0,255,136,0.8),
-        0 0 30px rgba(0,255,136,0.4);
-}
-
-/* ANIMACIÓN DE BRILLO */
-@keyframes shineText {
-    0% {
-        background-position: 0% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
-}
-.mascota {
-    width: 180px;
-    max-width: 60%;
-    margin-bottom: 20px;
-    animation: mascotIn 1s ease-out forwards;
-}
-body {
-    body {
-    background:
-        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
-        url("fondo.jpg") no-repeat center center fixed;
+        body {
+    background: url('fondo-kong.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-    }
-
-/* HEADER */
-header {
-    padding: 60px 20px 40px;
+    font-family: Arial, sans-serif;
     text-align: center;
 }
 
-/* LOGO */
-.logo {
-    font-size: 3.3rem;
-    letter-spacing: 4px;
-    color: #fff;
-    text-shadow: 0 0 12px #00ff88;
-    animation: logoIn 1s ease-out forwards;
-}
+        .container {
+            max-width: 420px;
+            margin: auto;
+            padding: 40px 20px;
+        }
 
-.logo span {
-    color: #00ff88;
-}
+        /* LOGO */
+        .logo img {
+            width: 200px;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
 
-/* LOGO ENTRADA */
-@keyframes logoIn {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
 
-header p {
-    margin-top: 10px;
-    font-size: .9rem;
-    letter-spacing: 2px;
-    color: #aaa;
-    animation: fadeIn 1.4s ease forwards;
-}
+        /* TITULO ELEGANTE URBANO */
+        .logo-text {
+            font-family: 'KongFont', 'Arial Black', Impact, sans-serif;
+            font-size: 3.2rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
 
-/* CONTAINER */
-.container {
-    max-width: 850px;
-    margin: auto;
-    padding: 30px 18px;
-}
+            background: linear-gradient(
+                120deg,
+                #dcdcdc 20%,
+                #ffffff 40%,
+                #9affc9 50%,
+                #ffffff 60%,
+                #dcdcdc 80%
+            );
+            background-size: 200% auto;
 
-/* SUCURSAL */
-.sucursal {
-    background: #0c0c0c;
-    border-radius: 16px;
-    padding: 26px;
-    margin-bottom: 35px;
-    opacity: 0;
-    transform: translateY(60px);
-    animation: slideUp .9s ease forwards;
-}
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 
-.sucursal:nth-child(1) { animation-delay: .3s; }
-.sucursal:nth-child(2) { animation-delay: .6s; }
+            text-shadow:
+                0 0 10px rgba(0,255,136,0.35),
+                0 0 25px rgba(0,255,136,0.15);
 
-.sucursal h2 {
-    font-size: 1.6rem;
-    margin-bottom: 18px;
-    letter-spacing: 2px;
-}
+            animation: shineText 4s linear infinite;
+        }
 
-/* BOTÓN TIKTOK STYLE */
-.btn {
-    display: block;
-    padding: 16px;
-    margin-bottom: 14px;
-    text-align: center;
-    font-size: 1.05rem;
-    font-weight: bold;
-    color: #000;
-    background: #00ff88;
-    border-radius: 12px;
-    animation: pulse 2s infinite;
-}
+        .logo-text span {
+            color: #00ff88;
+            -webkit-text-fill-color: #00ff88;
+            text-shadow:
+                0 0 12px rgba(0,255,136,0.8),
+                0 0 30px rgba(0,255,136,0.4);
+        }
 
-/* ANIMACIONES */
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(70px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes shineText {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+        /* SECCIONES */
+        .section {
+            margin-top: 35px;
+        }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(0,255,136,.6); }
-    70% { box-shadow: 0 0 0 18px rgba(0,255,136,0); }
-    100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
-}
+        .section h2 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #00ff88;
+            letter-spacing: 2px;
+        }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 18px;
-    font-size: .8rem;
-    color: #666;
-}
-</style>
+        /* BOTONES */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            background: #111;
+            border: 2px solid #00ff88;
+            border-radius: 40px;
+            color: #00ff88;
+            font-size: 1rem;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            animation: pulse 2.5s infinite;
+        }
+
+        .btn:hover {
+            background: #00ff88;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 rgba(0,255,136,0.6); }
+            70% { box-shadow: 0 0 20px rgba(0,255,136,0.3); }
+            100% { box-shadow: 0 0 0 rgba(0,255,136,0); }
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            opacity: 0.5;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <img src="mascota.png" alt="Mascota Kong Style" class="mascota">
+    <div class="container">
 
-    <div class="logo-text">
-        KONG <span>STYLE</span>
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="kong-logo.png" alt="Kong Style">
+        </div>
+
+        <!-- NOMBRE -->
+        <div class="logo-text">
+            KONG <span>STYLE</span>
+        </div>
+
+        <!-- SUCURSAL ZACATELCO -->
+        <div class="section">
+            <h2>SUCURSAL ZACATELCO</h2>
+            <a class="btn" href="https://www.instagram.com/kong_styletlax" target="_blank">Instagram</a>
+            <a class="btn" href="https://www.tiktok.com/@kstlax" target="_blank">TikTok</a>
+        </div>
+
+        <!-- SUCURSAL CHINA POBLANA -->
+        <div class="section">
+            <h2>SUCURSAL CHINA POBLANA</h2>
+            <a class="btn" href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a>
+            <a class="btn" href="https://www.tiktok.com/@ks.pue" target="_blank">TikTok</a>
+        </div>
+
+        <footer>
+            © 2026 Kong Style
+        </footer>
+
     </div>
-
-    <p>STREETWEAR · URBAN · MÉXICO</p>
-</header>
-
-<div class="container">
-
-    <!-- ZACATELCO -->
-    <div class="sucursal">
-        <h2>📍 ZACATELCO</h2>
-        <a class="btn" href="https://www.instagram.com/kong_styletlax" target="_blank">
-            Instagram · @kong_styletlax
-        </a>
-        <a class="btn" href="https://www.tiktok.com/@kstlax" target="_blank">
-            TikTok · @kstlax
-        </a>
-    </div>
-
-    <!-- CHINA POBLANA -->
-    <div class="sucursal">
-        <h2>📍 CHINA POBLANA</h2>
-        <a class="btn" href="https://www.instagram.com/kong_stylemx" target="_blank">
-            Instagram · @kong_stylemx
-        </a>
-        <a class="btn" href="https://www.tiktok.com/@ks.pue" target="_blank">
-            TikTok · @ks.pue
-        </a>
-    </div>
-
-</div>
-
-<footer>
-    © 2026 KONG STYLE
-</footer>
 
 </body>
 </html>
