@@ -6,12 +6,52 @@
 <title>KONG STYLE</title>
 
 <style>
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial Black', Impact, sans-serif;
+.logo-text {
+    position: relative;
+    font-family: 'KongFont', 'Arial Black', Impact, sans-serif;
+    font-size: 3.4rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #eaeaea;
+
+    /* Elegancia urbana */
+    background: linear-gradient(
+        120deg,
+        #dcdcdc 20%,
+        #ffffff 40%,
+        #9affc9 50%,
+        #ffffff 60%,
+        #dcdcdc 80%
+    );
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 10px rgba(0,255,136,0.35),
+        0 0 25px rgba(0,255,136,0.15);
+
+    animation: shineText 4s linear infinite;
+}
+
+/* STYLE en verde más marcado */
+.logo-text span {
+    color: #00ff88;
+    -webkit-text-fill-color: #00ff88;
+    text-shadow:
+        0 0 12px rgba(0,255,136,0.8),
+        0 0 30px rgba(0,255,136,0.4);
+}
+
+/* ANIMACIÓN DE BRILLO */
+@keyframes shineText {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
 }
 .mascota {
     width: 180px;
@@ -20,9 +60,13 @@
     animation: mascotIn 1s ease-out forwards;
 }
 body {
-    background: #000;
+    body {
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("fondo.jpg") no-repeat center center fixed;
+    background-size: cover;
     color: #fff;
-}
+    }
 
 /* HEADER */
 header {
