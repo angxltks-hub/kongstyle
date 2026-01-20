@@ -13,7 +13,12 @@
     box-sizing: border-box;
     font-family: 'Arial Black', Impact, sans-serif;
 }
-
+.mascota {
+    width: 180px;
+    max-width: 60%;
+    margin-bottom: 20px;
+    animation: mascotIn 1s ease-out forwards;
+}
 body {
     background: #000;
     color: #fff;
@@ -123,7 +128,12 @@ footer {
 <body>
 
 <header>
-    <div class="logo">KONG <span>STYLE</span></div>
+    <img src="mascota.png" alt="Mascota Kong Style" class="mascota">
+
+    <div class="logo-text">
+        KONG <span>STYLE</span>
+    </div>
+
     <p>STREETWEAR · URBAN · MÉXICO</p>
 </header>
 
