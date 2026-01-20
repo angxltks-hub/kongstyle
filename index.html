@@ -1,174 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kong Style | Streetwear</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kong Style</title>
 
-    <!-- FUENTE PERSONALIZADA (si ya la tienes) -->
-    <!-- Si la fuente que me enviaste es un archivo .ttf, súbelo y usa este bloque -->
-    <style>
-        @font-face {
-            font-family: 'KongFont';
-            src: url('kong-font.ttf') format('truetype');
-        }
-    </style>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-    background: url('fondo-kong.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    text-align: center;
+<style>
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
 
-        .container {
-            max-width: 420px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #6bff6b; }
+  50% { text-shadow: 0 0 18px #1aff1a; }
+  100% { text-shadow: 0 0 5px #6bff6b; }
+}
 
-        /* LOGO */
-        .logo img {
-            width: 200px;
-            animation: float 3s ease-in-out infinite;
-            margin-bottom: 20px;
-        }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url('fondo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: white;
+}
 
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
-        }
+.overlay {
+  background: rgba(0,0,0,0.65);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        /* TITULO ELEGANTE URBANO */
-        .logo-text {
-            font-family: 'KongFont', 'Arial Black', Impact, sans-serif;
-            font-size: 3.2rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 420px;
+  width: 100%;
+}
 
-            background: linear-gradient(
-                120deg,
-                #dcdcdc 20%,
-                #ffffff 40%,
-                #9affc9 50%,
-                #ffffff 60%,
-                #dcdcdc 80%
-            );
-            background-size: 200% auto;
+.mascota {
+  width: 200px;
+  animation: float 3s ease-in-out infinite;
+}
 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+h1 {
+  font-size: 2.6em;
+  letter-spacing: 2px;
+  animation: glow 2.5s infinite;
+}
 
-            text-shadow:
-                0 0 10px rgba(0,255,136,0.35),
-                0 0 25px rgba(0,255,136,0.15);
+.subtitle {
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
 
-            animation: shineText 4s linear infinite;
-        }
+.btn {
+  display: block;
+  margin: 15px auto;
+  padding: 16px;
+  width: 100%;
+  max-width: 300px;
+  background: linear-gradient(135deg, #1aff1a, #0b7d0b);
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 40px;
+  box-shadow: 0 0 18px rgba(26,255,26,0.6);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
 
-        .logo-text span {
-            color: #00ff88;
-            -webkit-text-fill-color: #00ff88;
-            text-shadow:
-                0 0 12px rgba(0,255,136,0.8),
-                0 0 30px rgba(0,255,136,0.4);
-        }
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(26,255,26,1);
+}
 
-        @keyframes shineText {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-        /* SECCIONES */
-        .section {
-            margin-top: 35px;
-        }
+.modal-content {
+  background: #0f0f0f;
+  padding: 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(26,255,26,0.6);
+}
 
-        .section h2 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #00ff88;
-            letter-spacing: 2px;
-        }
+.modal-content h2 {
+  color: #7CFF7C;
+  margin-bottom: 15px;
+}
 
-        /* BOTONES */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin: 12px 0;
-            background: #111;
-            border: 2px solid #00ff88;
-            border-radius: 40px;
-            color: #00ff88;
-            font-size: 1rem;
-            text-decoration: none;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            animation: pulse 2.5s infinite;
-        }
+.modal-content a {
+  display: block;
+  margin: 10px 0;
+  color: #1aff1a;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-        .btn:hover {
-            background: #00ff88;
-            color: #000;
-            transform: scale(1.05);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 rgba(0,255,136,0.6); }
-            70% { box-shadow: 0 0 20px rgba(0,255,136,0.3); }
-            100% { box-shadow: 0 0 0 rgba(0,255,136,0); }
-        }
-
-        footer {
-            margin-top: 40px;
-            font-size: 0.75rem;
-            opacity: 0.5;
-        }
-    </style>
+.close {
+  margin-top: 15px;
+  color: #ff6b6b;
+  cursor: pointer;
+}
+</style>
 </head>
+
 <body>
+<div class="overlay">
+  <div class="container">
 
-    <div class="container">
+    <img src="mascota.png" class="mascota" alt="Kong Style">
+    <h1>KONG STYLE</h1>
+    <div class="subtitle">High Unisex Streetwear</div>
 
-        <!-- LOGO -->
-        <div class="logo">
-            <img src="kong.png" alt="Kong Style">
-        </div>
+    <!-- BOTONES SUCURSALES -->
+    <button class="btn" onclick="openModal('zacatelco')">Sucursal Zacatelco</button>
+    <button class="btn" onclick="openModal('puebla')">Sucursal China Poblana</button>
 
-        <!-- NOMBRE -->
-        <div class="logo-text">
-            KONG <span>STYLE</span>
-        </div>
+  </div>
+</div>
 
-        <!-- SUCURSAL ZACATELCO -->
-        <div class="section">
-            <h2>SUCURSAL ZACATELCO</h2>
-            <a class="btn" href="https://www.instagram.com/kong_styletlax" target="_blank">Instagram</a>
-            <a class="btn" href="https://www.tiktok.com/@kstlax" target="_blank">TikTok</a>
-        </div>
+<!-- MODAL ZACATELCO -->
+<div id="zacatelco" class="modal">
+  <div class="modal-content">
+    <h2>Zacatelco</h2>
+    <a href="tel:+522463335286">📞 +52 246 333 5286</a>
+    <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" target="_blank">📍 Ver en Maps</a>
+    <a href="https://www.instagram.com/kong_styletlax" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@kstlax" target="_blank">TikTok</a>
+    <div class="close" onclick="closeModal()">Cerrar</div>
+  </div>
+</div>
 
-        <!-- SUCURSAL CHINA POBLANA -->
-        <div class="section">
-            <h2>SUCURSAL CHINA POBLANA</h2>
-            <a class="btn" href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a>
-            <a class="btn" href="https://www.tiktok.com/@ks.pue" target="_blank">TikTok</a>
-        </div>
+<!-- MODAL PUEBLA -->
+<div id="puebla" class="modal">
+  <div class="modal-content">
+    <h2>China Poblana</h2>
+    <a href="tel:+522221171466">📞 +52 222 117 1466</a>
+    <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" target="_blank">📍 Ver en Maps</a>
+    <a href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@ks.pue" target="_blank">TikTok</a>
+    <div class="close" onclick="closeModal()">Cerrar</div>
+  </div>
+</div>
 
-        <footer>
-            © 2026 Kong Style
-        </footer>
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = "flex";
+}
 
-    </div>
+function closeModal() {
+  document.querySelectorAll('.modal').forEach(m => m.style.display = "none");
+}
+</script>
 
 </body>
 </html>
