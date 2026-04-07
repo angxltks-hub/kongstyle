@@ -3,230 +3,594 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KONG STYLE: Streetwear unisex high quality en Zacatelco, Puebla y Cholula. Originales G5, mayoreo/menudeo.">
-<title>KONG STYLE | Streetwear Unisex Puebla Tlaxcala</title>
+<meta name="description" content="KONG STYLE: Streetwear premium unisex Puebla, Zacatelco, Cholula. G5 originales exclusivos.">
+<title>KONG STYLE | Streetwear Premium Puebla</title>
 
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;600;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet"></noscript>
 
 <style>
 :root {
-  --negro: #0a0a0a;
-  --negro-sec: #1a1a1a;
-  --gris: #2a2a2a;
-  --blanco: #ffffff;
-  --verde: #00ff88;
-  --verde-osc: #00b86b;
+  --negro-deep: #0a0a0a;
+  --negro: #151515;
+  --gris-dark: #242424;
+  --gris-light: #3a3a3a;
+  --blanco: #f5f5f5;
+  --verde-premium: #00ff88;
+  --verde-dark: #00cc6a;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: url('fondo-kong.jpg') no-repeat center/cover fixed;
+  background: var(--negro-deep);
   font-family: 'Montserrat', sans-serif;
   color: var(--blanco);
+  line-height: 1.5;
   overflow-x: hidden;
 }
 
-.overlay { 
-  background: linear-gradient(180deg, rgba(10,10,10,0.9), rgba(10,10,10,0.98));
-  min-height: 100vh;
+/* NAVBAR - COMO REFERENCIA */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 50px;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,255,136,0.2);
 }
 
-/* HERO */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--verde-premium), var(--blanco));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -8px;
+  left: 50%;
+  background: var(--verde-premium);
+  transition: all 0.3s;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--verde-premium);
+}
+
+/* HERO SECTION - EXACTO COMO REFERENCIA */
 .hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center; padding: 20px; position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding-top: 100px;
+  background: radial-gradient(circle at center, rgba(0,255,136,0.05) 0%, transparent 70%);
 }
 
-.hero::before {
-  content: 'KONG STYLE';
-  position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);
-  font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(4rem, 15vw, 8rem);
-  color: rgba(255,255,255,0.05); letter-spacing: 0.1em; z-index: 1; pointer-events: none;
+.hero-title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(6rem, 20vw, 14rem);
+  color: rgba(255,255,255,0.06);
+  letter-spacing: 0.15em;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.mascota { width: clamp(120px, 25vw, 200px); filter: drop-shadow(0 0 20px var(--verde)); animation: float 4s ease-in-out infinite; z-index: 2; }
-
-@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
-
-h1 {
-  font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 3.5rem); color: var(--verde);
-  text-shadow: 0 0 20px var(--verde); letter-spacing: 0.1em; margin: 20px 0; position: relative; z-index: 2;
+.logo-hero {
+  width: clamp(200px, 35vw, 350px);
+  filter: drop-shadow(0 25px 50px rgba(0,255,136,0.4));
+  animation: floatPremium 5s ease-in-out infinite;
+  z-index: 2;
+  margin-bottom: 20px;
 }
 
-.subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
-
-.btn {
-  display: block; margin: 10px auto; padding: 15px 30px; width: 100%; max-width: 280px;
-  background: var(--negro-sec); border: 1px solid rgba(0,255,136,0.4); color: var(--blanco);
-  border-radius: 30px; cursor: pointer; font-size: 1rem; font-weight: 600; letter-spacing: 1px;
-  transition: all 0.3s; text-decoration: none; text-align: center;
+@keyframes floatPremium {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
 }
 
-.btn:hover {
-  background: linear-gradient(135deg, var(--verde), var(--verde-osc)); color: var(--negro);
-  box-shadow: 0 0 30px var(--verde); transform: scale(1.05); border-color: var(--verde);
+.hero-main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  background: linear-gradient(135deg, var(--verde-premium), var(--blanco));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 20px 0;
+  letter-spacing: 0.1em;
+  z-index: 2;
 }
 
-/* COLLECTIONS SECTION */
+.hero-subtitle {
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  opacity: 0.8;
+  max-width: 700px;
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+
+.hero-cta {
+  padding: 20px 50px;
+  background: var(--negro);
+  border: 2px solid var(--verde-premium);
+  color: var(--blanco);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s;
+  border-radius: 0;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,136,0.3), transparent);
+  transition: left 0.6s;
+}
+
+.hero-cta:hover::before {
+  left: 100%;
+}
+
+.hero-cta:hover {
+  background: var(--verde-premium);
+  color: var(--negro-deep);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,255,136,0.4);
+}
+
+/* COLLECTIONS SECTION - EXACTO COMO REFERENCIA */
 .collections {
-  background: var(--negro); padding: 80px 20px; max-width: 1400px; margin: 0 auto;
+  padding: 150px 50px 100px;
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.section-title {
-  font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 5rem);
-  color: rgba(255,255,255,0.08); text-align: center; margin-bottom: 60px; letter-spacing: 0.2em;
+.collections::before {
+  content: 'COLLECTIONS';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(4rem, 15vw, 8rem);
+  color: rgba(255,255,255,0.08);
+  letter-spacing: 0.2em;
+  z-index: 1;
 }
 
-.grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 40px;
+  margin-top: 100px;
+  z-index: 2;
 }
 
-.card {
-  background: var(--gris); border-radius: 20px; overflow: hidden; transition: all 0.4s; cursor: pointer; position: relative;
+.collection-card {
+  position: relative;
+  height: 500px;
+  background: var(--gris-dark);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
-.card:hover {
-  transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,255,136,0.3);
-  border: 1px solid var(--verde);
+.collection-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 50px 100px rgba(0,0,0,0.5), 0 0 50px rgba(0,255,136,0.3);
+  border: 2px solid var(--verde-premium);
 }
 
-.card img {
-  width: 100%; height: 250px; object-fit: cover; transition: transform 0.4s;
+.collection-image {
+  width: 100%;
+  height: 70%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: transform 0.5s;
 }
 
-.card:hover img { transform: scale(1.1); }
-
-.card-content {
-  padding: 20px; text-align: center;
+.collection-card:hover .collection-image {
+  transform: scale(1.1);
 }
 
-.card h3 { color: var(--blanco); font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; }
-
-.card-links {
-  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px;
+.collection-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, var(--negro-deep));
+  padding: 40px 30px 30px;
 }
 
-.card-links a {
-  background: var(--negro-sec); color: var(--blanco); padding: 8px 15px; border-radius: 20px;
-  font-size: 0.85rem; text-decoration: none; transition: all 0.3s;
+.collection-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 400;
 }
 
-.card-links a:hover { background: var(--verde); color: var(--negro); }
+.collection-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-/* MODALS - Tu código original adaptado */
-.modal { display: none; position: fixed; inset: 0; background: rgba(10,10,10,0.95); z-index: 1000; justify-content: center; align-items: center; }
-.modal.show { display: flex; }
-.modal-content { background: var(--negro-sec); padding: 30px; border-radius: 20px; max-width: 400px; width: 90%; border: 1px solid var(--verde); text-align: center; }
-.modal-content h2 { color: var(--verde); margin-bottom: 20px; }
-.close { color: #888; cursor: pointer; font-size: 1.1rem; margin-top: 20px; display: block; }
+.collection-link {
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.1);
+  color: var(--blanco);
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s;
+}
 
-/* Responsive */
+.collection-link:hover {
+  background: var(--verde-premium);
+  color: var(--negro-deep);
+  border-color: var(--verde-premium);
+  transform: translateX(5px);
+}
+
+/* FOOTER */
+.footer {
+  background: var(--negro-deep);
+  padding: 60px 50px 30px;
+  text-align: center;
+  border-top: 1px solid rgba(0,255,136,0.2);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  color: var(--blanco);
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--verde-premium);
+}
+
+.footer-text {
+  opacity: 0.6;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* MODALS */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal.show {
+  display: flex;
+  animation: modalFade 0.3s ease-out;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content {
+  background: var(--negro);
+  padding: 60px 40px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  border: 2px solid var(--verde-premium);
+  text-align: center;
+  position: relative;
+  animation: modalSlide 0.4s ease-out;
+}
+
+@keyframes modalSlide {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--verde-premium);
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.modal-link {
+  display: block;
+  padding: 18px 30px;
+  background: var(--gris-dark);
+  color: var(--blanco);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border: 1px solid rgba(0,255,136,0.3);
+  transition: all 0.3s;
+}
+
+.modal-link:hover {
+  background: var(--verde-premium);
+  color: var(--negro-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0,255,136,0.4);
+}
+
+.modal-close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 2.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; gap: 20px; }
-  .section-title { font-size: 3rem; }
+  .navbar { padding: 15px 20px; }
+  .nav-menu { gap: 20px; }
+  .nav-link { font-size: 0.85rem; }
+  
+  .hero { padding-top: 90px; }
+  .hero-main-title { margin: 10px 0; }
+  
+  .collections { padding: 100px 20px 80px; }
+  .collections-grid { grid-template-columns: 1fr; gap: 30px; }
+  
+  .collection-card { height: 400px; }
+  
+  .footer { padding: 40px 20px 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero-cta { padding: 15px 30px; font-size: 1rem; }
+  .modal-content { padding: 40px 25px; }
 }
 </style>
 </head>
 
 <body>
-<div class="overlay">
-  <section class="hero">
-    <img src="kongg.png" class="mascota" alt="Logo KONG STYLE Streetwear" loading="lazy">
-    <h1>KONG STYLE</h1>
-    <p class="subtitle">High Unisex Streetwear | Originales G5 | Mayoreo y Menudeo</p>
-    <a href="#" class="btn" onclick="openModal('zacatelco')">Zacatelco</a>
-    <a href="#" class="btn" onclick="openModal('puebla')">China Poblana</a>
-    <a href="#" class="btn" onclick="openModal('cholula')">Cholula</a>
-  </section>
-</div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">KONG STYLE</div>
+  <ul class="nav-menu">
+    <li><a class="nav-link" href="#" onclick="openModal('zacatelco')">Zacatelco</a></li>
+    <li><a class="nav-link" href="#" onclick="openModal('puebla')">China Poblana</a></li>
+    <li><a class="nav-link" href="#" onclick="openModal('cholula')">Cholula</a></li>
+  </ul>
+</nav>
 
-<section class="collections">
-  <h2 class="section-title">COLLECTIONS</h2>
-  <div class="grid">
-    <!-- Reemplaza srcs con tus imágenes de productos streetwear -->
-    <div class="card" onclick="openModal('zacatelco')">
-      <img src="https://via.placeholder.com/400x250/2a2a2a/00ff88?text=STREET+DROP+1" alt="Colección Zacatelco" loading="lazy">
-      <div class="card-content">
-        <h3>Street Drop 1</h3>
-        <div class="card-links">
-          <a href="https://wa.me/522463335286">WA</a>
-          <a href="https://www.instagram.com/kong_styletlax">IG</a>
-          <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9">Maps</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-title">STREETWEAR</div>
+  <img src="kongg.webp" class="logo-hero" alt="KONG STYLE Logo" loading="lazy">
+  <h1 class="hero-main-title">KONG STYLE</h1>
+  <p class="hero-subtitle">Premium Unisex Streetwear • Originales G5 • Mayoreo Exclusivo</p>
+  <a href="#" class="hero-cta" onclick="scrollToCollections()">Explora Colecciones</a>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="collections-grid">
+    <!-- Card 1 - Zacatelco -->
+    <div class="collection-card" onclick="openModal('zacatelco')">
+      <div class="collection-image" style="background-image: url('https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=350&fit=crop');"></div>
+      <div class="collection-overlay">
+        <h3 class="collection-title">ZACATELCO DROP</h3>
+        <div class="collection-links">
+          <a href="https://wa.me/522463335286" class="collection-link">WhatsApp</a>
+          <a href="https://www.instagram.com/kong_styletlax" class="collection-link">Instagram</a>
+          <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" class="collection-link">Maps</a>
         </div>
       </div>
     </div>
-    <div class="card" onclick="openModal('puebla')">
-      <img src="https://via.placeholder.com/400x250/2a2a2a/00ff88?text=URBAN+HEAT" alt="Colección Puebla" loading="lazy">
-      <div class="card-content">
-        <h3>Urban Heat</h3>
-        <div class="card-links">
-          <a href="https://wa.me/522221171466">WA</a>
-          <a href="https://www.instagram.com/kong_stylemx">IG</a>
-          <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7">Maps</a>
+
+    <!-- Card 2 - Puebla -->
+    <div class="collection-card" onclick="openModal('puebla')">
+      <div class="collection-image" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=350&fit=crop');"></div>
+      <div class="collection-overlay">
+        <h3 class="collection-title">CHINA POBLANA</h3>
+        <div class="collection-links">
+          <a href="https://wa.me/522221171466" class="collection-link">WhatsApp</a>
+          <a href="https://www.instagram.com/kong_stylemx" class="collection-link">Instagram</a>
+          <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" class="collection-link">Maps</a>
         </div>
       </div>
     </div>
-    <div class="card" onclick="openModal('cholula')">
-      <img src="https://via.placeholder.com/400x250/2a2a2a/00ff88?text=NIGHT+DROP" alt="Colección Cholula" loading="lazy">
-      <div class="card-content">
-        <h3>Night Drop</h3>
-        <div class="card-links">
-          <a href="https://www.instagram.com/kong_stylemx">IG</a>
-          <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9">Maps</a>
-          <a href="https://www.tiktok.com/@cholukong">TikTok</a>
+
+    <!-- Card 3 - Cholula -->
+    <div class="collection-card" onclick="openModal('cholula')">
+      <div class="collection-image" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=350&fit=crop');"></div>
+      <div class="collection-overlay">
+        <h3 class="collection-title">CHOLULA EXCLUSIVE</h3>
+        <div class="collection-links">
+          <a href="https://www.instagram.com/kong_stylemx" class="collection-link">Instagram</a>
+          <a href="https://www.tiktok.com/@cholukong" class="collection-link">TikTok</a>
+          <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9" class="collection-link">Maps</a>
         </div>
       </div>
     </div>
-    <!-- Agrega más cards si tienes más productos -->
+
+    <!-- Card 4 - Extra como ref -->
+    <div class="collection-card">
+      <div class="collection-image" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=350&fit=crop');"></div>
+      <div class="collection-overlay">
+        <h3 class="collection-title">NEW DROP</h3>
+        <div class="collection-links">
+          <a href="#" class="collection-link" onclick="openModal('puebla')">Coming Soon</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Modales (tu código original adaptado) -->
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-social">
+    <a href="https://www.instagram.com/kong_stylemx">Instagram</a>
+    <a href="https://www.tiktok.com/@ks.pue">TikTok</a>
+    <a href="https://www.instagram.com/kong_styletlax">IG Tlax</a>
+  </div>
+  <p class="footer-text">© 2026 KONG STYLE. Premium Streetwear México. Todos los derechos reservados.</p>
+</footer>
+
+<!-- MODALS -->
 <div id="zacatelco" class="modal">
   <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
     <h2>Zacatelco</h2>
-    <div class="card-links" style="justify-content:center; gap:15px; flex-direction:column;">
-      <a href="https://wa.me/522463335286">WhatsApp</a>
-      <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9">Maps</a>
-      <a href="https://www.instagram.com/kong_styletlax">Instagram</a>
-      <a href="https://www.tiktok.com/@kstlax">TikTok</a>
+    <div class="modal-links">
+      <a href="https://wa.me/522463335286" class="modal-link">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" class="modal-link">Maps</a>
+      <a href="https://www.instagram.com/kong_styletlax" class="modal-link">Instagram</a>
+      <a href="https://www.tiktok.com/@kstlax" class="modal-link">TikTok</a>
     </div>
-    <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
+
 <div id="puebla" class="modal">
   <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
     <h2>China Poblana</h2>
-    <div class="card-links" style="justify-content:center; gap:15px; flex-direction:column;">
-      <a href="https://wa.me/522221171466">WhatsApp</a>
-      <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7">Maps</a>
-      <a href="https://www.instagram.com/kong_stylemx">Instagram</a>
-      <a href="https://www.tiktok.com/@ks.pue">TikTok</a>
+    <div class="modal-links">
+      <a href="https://wa.me/522221171466" class="modal-link">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" class="modal-link">Maps</a>
+      <a href="https://www.instagram.com/kong_stylemx" class="modal-link">Instagram</a>
+      <a href="https://www.tiktok.com/@ks.pue" class="modal-link">TikTok</a>
     </div>
-    <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
+
 <div id="cholula" class="modal">
   <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
     <h2>Cholula</h2>
-    <div class="card-links" style="justify-content:center; gap:15px; flex-direction:column;">
-      <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9">Maps</a>
-      <a href="https://www.instagram.com/kong_stylemx">Instagram</a>
-      <a href="https://www.tiktok.com/@cholukong">TikTok</a>
+    <div class="modal-links">
+      <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9" class="modal-link">Maps</a>
+      <a href="https://www.instagram.com/kong_stylemx" class="modal-link">Instagram</a>
+      <a href="https://www.tiktok.com/@cholukong" class="modal-link">TikTok</a>
     </div>
-    <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
 <script>
-function openModal(id) { document.getElementById(id).classList.add('show'); }
-function closeModal() { document.querySelectorAll('.modal').forEach(m => m.classList.remove('show')); }
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+function openModal(id) {
+  document.getElementById(id).classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('show'));
+  document.body.style.overflow = 'auto';
+}
+
+function scrollToCollections() {
+  document.getElementById('collections').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Cerrar modal con ESC y click fuera
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
 document.querySelectorAll('.modal').forEach(modal => {
-  modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
 });
 </script>
 </body>
