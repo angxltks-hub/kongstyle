@@ -3,256 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kong Style</title>
+<meta name="description" content="KONG STYLE: Streetwear unisex high quality en Zacatelco, Puebla y Cholula. Originales G5, mayoreo/menudeo.">
+<title>KONG STYLE | Streetwear Unisex Puebla Tlaxcala</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet"></noscript>
 
 <style>
 :root {
-  --negro: #050505;
-  --negro-sec: #0f0f0f;
-  --gris: #1c1c1c;
+  --negro: #0a0a0a;
+  --negro-sec: #1a1a1a;
+  --gris: #2a2a2a;
   --blanco: #ffffff;
   --verde: #00ff88;
-  --verde-oscuro: #00b86b;
+  --verde-osc: #00b86b;
 }
 
-/* ===== BASE ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: url('fondo-kong.jpg') no-repeat center center fixed;
-  background-size: cover;
+  background: url('fondo-kong.jpg') no-repeat center/cover fixed;
   font-family: 'Montserrat', sans-serif;
   color: var(--blanco);
+  overflow-x: hidden;
 }
 
-.overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(5,5,5,0.85),
-    rgba(5,5,5,0.95)
-  );
+.overlay { 
+  background: linear-gradient(180deg, rgba(10,10,10,0.9), rgba(10,10,10,0.98));
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* ===== HERO ===== */
-
-.container {
-  text-align: center;
-  max-width: 420px;
-  padding: 20px;
-  position: relative;
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 20px; position: relative;
 }
 
-/* TEXTO GIGANTE DE FONDO */
-.big-text {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 5.5em;
-  font-weight: 900;
-  color: rgba(255,255,255,0.04);
-  letter-spacing: 6px;
-  pointer-events: none;
+.hero::before {
+  content: 'KONG STYLE';
+  position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);
+  font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(4rem, 15vw, 8rem);
+  color: rgba(255,255,255,0.05); letter-spacing: 0.1em; z-index: 1; pointer-events: none;
 }
 
-/* LOGO */
+.mascota { width: clamp(120px, 25vw, 200px); filter: drop-shadow(0 0 20px var(--verde)); animation: float 4s ease-in-out infinite; z-index: 2; }
 
-.mascota {
-  width: 160px;
-  margin-top: 40px;
-  filter: drop-shadow(0 0 12px rgba(0,255,136,0.4));
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* TITULOS */
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
 
 h1 {
-  margin: 10px 0 5px;
-  font-size: 2.2em;
-  color: var(--verde);
-  letter-spacing: 2px;
-  text-shadow: 0 0 12px rgba(0,255,136,0.5);
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 3.5rem); color: var(--verde);
+  text-shadow: 0 0 20px var(--verde); letter-spacing: 0.1em; margin: 20px 0; position: relative; z-index: 2;
 }
 
-.subtitle {
-  font-size: 0.8em;
-  opacity: 0.7;
-  margin-bottom: 25px;
-}
-
-/* ===== BOTONES ===== */
+.subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
 
 .btn {
-  display: block;
-  margin: 10px auto;
-  padding: 12px;
-  width: 100%;
-  max-width: 260px;
-  background: var(--negro-sec);
-  border: 1px solid rgba(0,255,136,0.3);
-  color: var(--blanco);
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 0.85em;
-  letter-spacing: 1px;
-  transition: all 0.25s ease;
+  display: block; margin: 10px auto; padding: 15px 30px; width: 100%; max-width: 280px;
+  background: var(--negro-sec); border: 1px solid rgba(0,255,136,0.4); color: var(--blanco);
+  border-radius: 30px; cursor: pointer; font-size: 1rem; font-weight: 600; letter-spacing: 1px;
+  transition: all 0.3s; text-decoration: none; text-align: center;
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
-  color: #000;
-  box-shadow: 0 0 20px rgba(0,255,136,0.5);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--verde), var(--verde-osc)); color: var(--negro);
+  box-shadow: 0 0 30px var(--verde); transform: scale(1.05); border-color: var(--verde);
 }
 
-/* ===== NOTAS ===== */
-
-.notes {
-  margin-top: 20px;
-  font-size: 0.75em;
-  opacity: 0.7;
+/* COLLECTIONS SECTION */
+.collections {
+  background: var(--negro); padding: 80px 20px; max-width: 1400px; margin: 0 auto;
 }
 
-/* ===== MODAL ===== */
-
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
+.section-title {
+  font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 5rem);
+  color: rgba(255,255,255,0.08); text-align: center; margin-bottom: 60px; letter-spacing: 0.2em;
 }
 
-.modal.show {
-  display: flex;
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;
 }
-
-.modal-content {
-  background: var(--negro);
-  padding: 22px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 320px;
-  border: 1px solid rgba(0,255,136,0.2);
-}
-
-.modal-content h2 {
-  color: var(--verde);
-}
-
-/* TARJETAS */
 
 .card {
-  background: var(--gris);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  transition: 0.2s;
+  background: var(--gris); border-radius: 20px; overflow: hidden; transition: all 0.4s; cursor: pointer; position: relative;
 }
 
 .card:hover {
-  background: #252525;
-  transform: scale(1.03);
+  transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,255,136,0.3);
+  border: 1px solid var(--verde);
 }
 
-.card a {
-  color: #d4ffe7;
-  text-decoration: none;
-  font-size: 0.85em;
+.card img {
+  width: 100%; height: 250px; object-fit: cover; transition: transform 0.4s;
 }
 
-.close {
-  margin-top: 10px;
-  font-size: 0.75em;
-  color: #888;
-  cursor: pointer;
+.card:hover img { transform: scale(1.1); }
+
+.card-content {
+  padding: 20px; text-align: center;
+}
+
+.card h3 { color: var(--blanco); font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; }
+
+.card-links {
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px;
+}
+
+.card-links a {
+  background: var(--negro-sec); color: var(--blanco); padding: 8px 15px; border-radius: 20px;
+  font-size: 0.85rem; text-decoration: none; transition: all 0.3s;
+}
+
+.card-links a:hover { background: var(--verde); color: var(--negro); }
+
+/* MODALS - Tu código original adaptado */
+.modal { display: none; position: fixed; inset: 0; background: rgba(10,10,10,0.95); z-index: 1000; justify-content: center; align-items: center; }
+.modal.show { display: flex; }
+.modal-content { background: var(--negro-sec); padding: 30px; border-radius: 20px; max-width: 400px; width: 90%; border: 1px solid var(--verde); text-align: center; }
+.modal-content h2 { color: var(--verde); margin-bottom: 20px; }
+.close { color: #888; cursor: pointer; font-size: 1.1rem; margin-top: 20px; display: block; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; gap: 20px; }
+  .section-title { font-size: 3rem; }
 }
 </style>
 </head>
 
 <body>
-
 <div class="overlay">
-  <div class="container">
-
-    <div class="big-text">KONG</div>
-
-    <img src="kongg.png" class="mascota">
-
+  <section class="hero">
+    <img src="kongg.png" class="mascota" alt="Logo KONG STYLE Streetwear" loading="lazy">
     <h1>KONG STYLE</h1>
-    <div class="subtitle">High Unisex Streetwear</div>
-
-    <button class="btn" onclick="openModal('zacatelco')">Zacatelco</button>
-    <button class="btn" onclick="openModal('puebla')">China Poblana</button>
-    <button class="btn" onclick="openModal('cholula')">Cholula</button>
-
-    <div class="notes">
-      <p>ℹ️ Más info en los enlaces</p>
-      <p>🛍️ Mayoreo y menudeo</p>
-      <p>✔️ Originales y G5</p>
-    </div>
-
-  </div>
+    <p class="subtitle">High Unisex Streetwear | Originales G5 | Mayoreo y Menudeo</p>
+    <a href="#" class="btn" onclick="openModal('zacatelco')">Zacatelco</a>
+    <a href="#" class="btn" onclick="openModal('puebla')">China Poblana</a>
+    <a href="#" class="btn" onclick="openModal('cholula')">Cholula</a>
+  </section>
 </div>
 
-<!-- ZACATELCO -->
+<section class="collections">
+  <h2 class="section-title">COLLECTIONS</h2>
+  <div class="grid">
+    <!-- Reemplaza srcs con tus imágenes de productos streetwear -->
+    <div class="card" onclick="openModal('zacatelco')">
+      <img src="https://via.placeholder.com/400x250/2a2a2a/00ff88?text=STREET+DROP+1" alt="Colección Zacatelco" loading="lazy">
+      <div class="card-content">
+        <h3>Street Drop 1</h3>
+        <div class="card-links">
+          <a href="https://wa.me/522463335286">WA</a>
+          <a href="https://www.instagram.com/kong_styletlax">IG</a>
+          <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9">Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="openModal('puebla')">
+      <img src="https://via.placeholder.com/400x250/2a2a2a/00ff88?text=URBAN+HEAT" alt="Colección Puebla" loading="lazy">
+      <div class="card-content">
+        <h3>Urban Heat</h3>
+        <div class="card-links">
+          <a href="https://wa.me/522221171466">WA</a>
+          <a href="https://www.instagram.com/kong_stylemx">IG</a>
+          <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7">Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="openModal('cholula')">
+      <img src="https://via.placeholder.com/400x250/2a2a2a/00ff88?text=NIGHT+DROP" alt="Colección Cholula" loading="lazy">
+      <div class="card-content">
+        <h3>Night Drop</h3>
+        <div class="card-links">
+          <a href="https://www.instagram.com/kong_stylemx">IG</a>
+          <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9">Maps</a>
+          <a href="https://www.tiktok.com/@cholukong">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <!-- Agrega más cards si tienes más productos -->
+  </div>
+</section>
+
+<!-- Modales (tu código original adaptado) -->
 <div id="zacatelco" class="modal">
   <div class="modal-content">
     <h2>Zacatelco</h2>
-    <div class="card"><a href="https://wa.me/522463335286">WhatsApp</a></div>
-    <div class="card"><a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9">Maps</a></div>
-    <div class="card"><a href="https://www.instagram.com/kong_styletlax">Instagram</a></div>
-    <div class="card"><a href="https://www.tiktok.com/@kstlax">TikTok</a></div>
+    <div class="card-links" style="justify-content:center; gap:15px; flex-direction:column;">
+      <a href="https://wa.me/522463335286">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9">Maps</a>
+      <a href="https://www.instagram.com/kong_styletlax">Instagram</a>
+      <a href="https://www.tiktok.com/@kstlax">TikTok</a>
+    </div>
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
-
-<!-- PUEBLA -->
 <div id="puebla" class="modal">
   <div class="modal-content">
     <h2>China Poblana</h2>
-    <div class="card"><a href="https://wa.me/522221171466">WhatsApp</a></div>
-    <div class="card"><a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7">Maps</a></div>
-    <div class="card"><a href="https://www.instagram.com/kong_stylemx">Instagram</a></div>
-    <div class="card"><a href="https://www.tiktok.com/@ks.pue">TikTok</a></div>
+    <div class="card-links" style="justify-content:center; gap:15px; flex-direction:column;">
+      <a href="https://wa.me/522221171466">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7">Maps</a>
+      <a href="https://www.instagram.com/kong_stylemx">Instagram</a>
+      <a href="https://www.tiktok.com/@ks.pue">TikTok</a>
+    </div>
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
-
-<!-- CHOLULA -->
 <div id="cholula" class="modal">
   <div class="modal-content">
     <h2>Cholula</h2>
-    <div class="card"><a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9">Maps</a></div>
-    <div class="card"><a href="https://www.instagram.com/kong_stylemx">Instagram</a></div>
-    <div class="card"><a href="https://www.tiktok.com/@cholukong?_r=1&_t=ZS-95KHK6lQIWf">TikTok</a></div>
+    <div class="card-links" style="justify-content:center; gap:15px; flex-direction:column;">
+      <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9">Maps</a>
+      <a href="https://www.instagram.com/kong_stylemx">Instagram</a>
+      <a href="https://www.tiktok.com/@cholukong">TikTok</a>
+    </div>
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
 <script>
-function openModal(id) {
-  document.getElementById(id).classList.add('show');
-}
-
-function closeModal() {
-  document.querySelectorAll('.modal').forEach(m => m.classList.remove('show'));
-}
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal() { document.querySelectorAll('.modal').forEach(m => m.classList.remove('show')); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+document.querySelectorAll('.modal').forEach(modal => {
+  modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
+});
 </script>
-
 </body>
 </html>
