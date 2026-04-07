@@ -502,14 +502,14 @@ body {
     </div>
 
     <!-- Reemplaza SOLO esta card en tu código (líneas de collections-grid) -->
-<div class="collection-card promo-card" style="height: 600px; display: flex; flex-direction: column;">
+<div class="collection-card promo-card" <div class="collection-card" onclick="openModal('PROMOCIONES)">
   <!-- Imagen 1 - Promo Principal -->
   <div class="collection-image promo-main" style="
     height: 60%; 
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('promo1.webp');
     display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--verde-premium); font-weight: 900;
   ">
-    PROMO EXCLUSIVA
+    
   </div>
   
   <!-- Imagen 2 - Detalle/Sale -->
@@ -518,7 +518,7 @@ body {
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('promo2.webp');
     padding: 30px; text-align: center; display: flex; flex-direction: column; justify-content: center;
   ">
-    <div style="font-size: 2.5rem; font-weight: 900; color: var(--verde-premium); margin-bottom: 10px;">-40%</div>
+    <div style="font-size: 2.5rem; font-weight: 900; color: var(--verde-premium); margin-bottom: 10px;"></div>
     <div style="font-size: 1.2rem; opacity: 0.9;">LIMITED STOCK</div>
   </div>
   
@@ -530,19 +530,7 @@ body {
       <a href="https://www.instagram.com/kong_stylemx" class="collection-link">Instagram</a>
     </div>
   </div>
-</div> .promo-card:hover {
-  border: 3px solid var(--verde-premium) !important;
-  box-shadow: 0 0 80px rgba(0,255,136,0.5) !important;
-}
-
-.promo-card:hover .promo-main {
-  transform: scale(1.05);
-  background-image: linear-gradient(rgba(0,255,136,0.2), rgba(0,0,0,0.6)), url('promo1.webp') !important;
-}
-
-.promo-card:hover .promo-sub {
-  background-image: linear-gradient(rgba(0,255,136,0.3), rgba(0,0,0,0.7)), url('promo2.webp') !important;
-}
+</div> 
 </section>
 
 <!-- FOOTER -->
@@ -593,7 +581,7 @@ body {
     </div>
   </div>
 </div>
-
+  
 <script>
 function openModal(id) {
   document.getElementById(id).classList.add('show');
