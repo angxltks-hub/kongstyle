@@ -440,8 +440,61 @@ body {
   .hero-cta { padding: 15px 30px; font-size: 1rem; }
   .modal-content { padding: 40px 25px; }
 }
+<head>
+<style>
+/* AQUÍ PEGAS TODO TU CSS */
+.promo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0f0f0f;
+  border: 1px solid rgba(0,255,120,0.2);
+  transition: 0.3s;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.promo-card:hover img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.promo-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.promo-info h3 {
+  color: #00ff88;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.promo-info p {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.promo-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 20px;
+  background: #00ff88;
+  color: #000;
+  font-weight: bold;
+}
 </style>
-</head>
 
 <body>
 <!-- NAVBAR -->
@@ -518,7 +571,33 @@ body {
 </footer>
 
 <!-- MODALS -->
-<div id="zacatelco" class="modal">
+<section class="promos">
+  <h2 class="section-title">🔥 Promociones</h2>
+
+  <div class="cards">
+    <!-- PROMO 1 -->
+    <div class="card promo-card">
+      <img src="img/promo1.jpg">
+      <div class="promo-info">
+        <h3>Abril Hot</h3>
+        <p>10% de descuento en toda la original</p>
+        <span class="promo-tag">Disponible</span>
+      </div>
+    </div>
+
+    <!-- PROMO 2 -->
+    <div class="card promo-card">
+      <img src="img/promo2.jpg">
+      <div class="promo-info">
+        <h3>2 x $1400</h3>
+        <p>Arma tu combo</p>
+        <span class="promo-tag">Solo Abril</span>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <div id="zacatelco" class="modal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal()">&times;</button>
     <h2>Zacatelco</h2>
@@ -555,16 +634,6 @@ body {
     </div>
   </div>
  </div>
-  
-  <div id="" class="modal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h2>PROMOS</h2>
-    <div class="modal-images">
-      <a href="promo.1webp" class="modal-image"></a>
-      <a href="promo2.webp" class="modal-image"></a>
-    </div>
-  </div>  
     
 <script>
 function openModal(id) {
