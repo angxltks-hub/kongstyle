@@ -10,7 +10,85 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet"></noscript>
 
 <style>
-:root {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .section-title {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+
+  .promo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #0f0f0f;
+    border: 1px solid rgba(0,255,120,0.2);
+    transition: 0.3s;
+  }
+
+  .promo-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+  }
+/* AQUÍ PEGAS TODO TU CSS */
+.promo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0f0f0f;
+  border: 1px solid rgba(0,255,120,0.2);
+  transition: 0.3s;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.promo-card:hover img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.promo-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.promo-info h3 {
+  color: #00ff88;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.promo-info p {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.promo-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 20px;
+  background: #00ff88;
+  color: #000;
+  font-weight: bold;
+}
+   :root {
   --negro-deep: #0a0a0a;
   --negro: #151515;
   --gris-dark: #242424;
@@ -121,9 +199,9 @@ body {
 .logo-hero {
   width: clamp(200px, 35vw, 350px);
   filter: drop-shadow(0 25px 50px rgba(0,255,136,0.4));
-  animation: floatPremium 5s ease-in-out infinite;
+  animation: floatPremium 3s ease-in-out infinite;
   z-index: 2;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 @keyframes floatPremium {
@@ -440,61 +518,6 @@ body {
   .hero-cta { padding: 15px 30px; font-size: 1rem; }
   .modal-content { padding: 40px 25px; }
 }
-<head>
-<style>
-/* AQUÍ PEGAS TODO TU CSS */
-.promo-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #0f0f0f;
-  border: 1px solid rgba(0,255,120,0.2);
-  transition: 0.3s;
-}
-
-.promo-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  opacity: 0.85;
-  transition: 0.3s;
-}
-
-.promo-card:hover img {
-  transform: scale(1.05);
-  opacity: 1;
-}
-
-.promo-info {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-}
-
-.promo-info h3 {
-  color: #00ff88;
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.promo-info p {
-  color: #ccc;
-  font-size: 13px;
-}
-
-.promo-tag {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 5px 10px;
-  font-size: 11px;
-  border-radius: 20px;
-  background: #00ff88;
-  color: #000;
-  font-weight: bold;
-}
-</style>
 
 <body>
 <!-- NAVBAR -->
@@ -507,15 +530,41 @@ body {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-title">STREETWEAR</div>
-  <img src="kongg.webp" class="logo-hero" alt="KONG STYLE Logo" loading="lazy">
+  <img src="kongg.png" class="logo-hero" alt="KONG STYLE Logo" loading="lazy">
   <h1 class="hero-main-title">KONG STYLE</h1>
   <p class="hero-subtitle">High Unisex Streetwear • OG • g Five • Mayoreo • Menudeo</p>
   <a href="#" class="hero-cta" onclick="scrollToCollections()">Explora tu Estilo</a>
 </section>
 
 <!-- COLLECTIONS -->
-<section class="collections" id="collections">
-  <div class="collections-grid">
+  <section class="promos">
+  <h2 class="section-title">🔥 Promociones</h2>
+
+  <div class="cards">
+    <!-- PROMO 1 -->
+    <div class="card promo-card">
+      <img src="img/promo1.webp">
+      <div class="promo-info">
+        <h3>Abril Hot</h3>
+        <p>10% de descuento en toda la original</p>
+        <span class="promo-tag">Disponible</span>
+      </div>
+    </div>
+
+    <!-- PROMO 2 -->
+    <div class="card promo-card">
+      <img src="img/promo2.webp">
+      <div class="promo-info">
+        <h3>2 x $1400</h3>
+        <p>Arma tu combo</p>
+        <span class="promo-tag">Solo Abril</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="collections">
+  <div class="cards">
     <!-- Card 1 - Zacatelco -->
     <div class="collection-card" onclick="openModal('zacatelco')">
       <div class="collection-overlay">
@@ -577,7 +626,7 @@ body {
   <div class="cards">
     <!-- PROMO 1 -->
     <div class="card promo-card">
-      <img src="img/promo1.jpg">
+      <img src="img/promo1.webp">
       <div class="promo-info">
         <h3>Abril Hot</h3>
         <p>10% de descuento en toda la original</p>
@@ -587,7 +636,7 @@ body {
 
     <!-- PROMO 2 -->
     <div class="card promo-card">
-      <img src="img/promo2.jpg">
+      <img src="img/promo2.webp">
       <div class="promo-info">
         <h3>2 x $1400</h3>
         <p>Arma tu combo</p>
