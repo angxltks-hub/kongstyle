@@ -23,7 +23,7 @@ body {
   color: var(--blanco);
 }
 
-/* ================= LOADER ================= */
+/* LOADER */
 #loader {
   position: fixed;
   width: 100%;
@@ -38,7 +38,6 @@ body {
 
 .loader-logo {
   width: 180px;
-  z-index: 2;
   animation: float 3s ease-in-out infinite;
   filter: drop-shadow(0 0 25px rgba(0,255,136,0.6));
 }
@@ -50,13 +49,12 @@ body {
   background: radial-gradient(circle, rgba(0,255,136,0.15) 0%, transparent 60%);
   animation: smokeMove 8s linear infinite;
   filter: blur(80px);
-  opacity: 0.4;
 }
 
 @keyframes smokeMove {
-  0% { transform: translate(-20%, -20%) scale(1); }
-  50% { transform: translate(10%, 10%) scale(1.2); }
-  100% { transform: translate(-20%, -20%) scale(1); }
+  0% { transform: translate(-20%, -20%); }
+  50% { transform: translate(10%, 10%); }
+  100% { transform: translate(-20%, -20%); }
 }
 
 @keyframes float {
@@ -64,7 +62,7 @@ body {
   50% { transform: translateY(-15px); }
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero {
   height: 100vh;
   display:flex;
@@ -74,26 +72,24 @@ body {
   text-align:center;
 }
 
-.hero img {
-  width:200px;
-  margin-bottom:20px;
-}
+.hero img { width:200px; }
 
 .hero h1 {
-  font-size:3rem;
+  font-size: 2.5rem;
   color: var(--verde);
 }
 
-button {
-  margin-top:20px;
-  padding:15px 30px;
-  border:none;
+.btn {
+  margin:10px;
+  padding:15px 25px;
   background: var(--verde);
   color:black;
+  border:none;
   cursor:pointer;
+  border-radius:20px;
 }
 
-/* ================= PROMOS ================= */
+/* PROMOS */
 .promos {
   padding:80px 20px;
 }
@@ -119,23 +115,16 @@ button {
 .promo-info {
   position:absolute;
   bottom:0;
+  width:100%;
   padding:10px;
   background:linear-gradient(to top, black, transparent);
 }
 
-/* ================= COLLECTIONS ================= */
-.collections {
-  padding:80px 20px;
+.promo-info h3 {
+  color: var(--verde);
 }
 
-.collection-card {
-  background: var(--gris);
-  padding:40px;
-  text-align:center;
-  cursor:pointer;
-}
-
-/* ================= MODAL ================= */
+/* MODAL */
 .modal {
   display:none;
   position:fixed;
@@ -146,13 +135,20 @@ button {
   align-items:center;
 }
 
-.modal.show {
-  display:flex;
-}
+.modal.show { display:flex; }
 
 .modal-content {
   background:#111;
   padding:30px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.modal a {
+  display:block;
+  margin:10px 0;
+  color:var(--verde);
+  text-decoration:none;
 }
 </style>
 </head>
@@ -167,71 +163,70 @@ button {
 
 <!-- HERO -->
 <section class="hero">
-  <img src="kongg.png">
+  <img src="kongg.png" alt="logo">
   <h1>KONG STYLE</h1>
-  <button onclick="scrollToCollections()">Entrar</button>
+
+  <button class="btn" onclick="openModal('zacatelco')">Zacatelco</button>
+  <button class="btn" onclick="openModal('puebla')">Puebla</button>
+  <button class="btn" onclick="openModal('cholula')">Cholula</button>
 </section>
 
 <!-- PROMOS -->
 <section class="promos">
   <h2>🔥 Promociones</h2>
+
   <div class="cards">
 
     <div class="promo-card">
-      <img src="img/promo2.webp">
+      <img src="img/promo2.webp" alt="Promo 1">
       <div class="promo-info">
-        <h3>-10% Originales</h3>
+        <h3>Abril Hot</h3>
+        <p>10% de descuento</p>
       </div>
     </div>
 
     <div class="promo-card">
-      <img src="img/promo1.webp">
+      <img src="img/promo1.webp" alt="Promo 2">
       <div class="promo-info">
         <h3>2 x $1400</h3>
+        <p>Combo especial</p>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- COLLECTIONS -->
-<section class="collections" id="collections">
-  <div class="cards">
-
-    <div class="collection-card" onclick="openModal('zacatelco')">
-      ZACATELCO
-    </div>
-
-    <div class="collection-card" onclick="openModal('puebla')">
-      PUEBLA
-    </div>
-
-    <div class="collection-card" onclick="openModal('cholula')">
-      CHOLULA
     </div>
 
   </div>
 </section>
 
 <!-- MODALS -->
+
 <div id="zacatelco" class="modal">
   <div class="modal-content">
-    <button onclick="closeModal()">X</button>
     <h2>Zacatelco</h2>
+    <a href="https://wa.me/522463335286" target="_blank">WhatsApp</a>
+    <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" target="_blank">Maps</a>
+    <a href="https://www.instagram.com/kong_styletlax" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@kstlax" target="_blank">TikTok</a>
+    <button onclick="closeModal()">Cerrar</button>
   </div>
 </div>
 
 <div id="puebla" class="modal">
   <div class="modal-content">
-    <button onclick="closeModal()">X</button>
     <h2>Puebla</h2>
+    <a href="https://wa.me/522221171466" target="_blank">WhatsApp</a>
+    <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" target="_blank">Maps</a>
+    <a href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@ks.pue" target="_blank">TikTok</a>
+    <button onclick="closeModal()">Cerrar</button>
   </div>
 </div>
 
 <div id="cholula" class="modal">
   <div class="modal-content">
-    <button onclick="closeModal()">X</button>
     <h2>Cholula</h2>
+    <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9" target="_blank">Maps</a>
+    <a href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@cholukong" target="_blank">TikTok</a>
+    <button onclick="closeModal()">Cerrar</button>
   </div>
 </div>
 
@@ -244,11 +239,6 @@ function closeModal(){
   document.querySelectorAll('.modal').forEach(m => m.classList.remove('show'));
 }
 
-function scrollToCollections(){
-  document.getElementById('collections').scrollIntoView({behavior:'smooth'});
-}
-
-/* LOADER */
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
 
@@ -259,7 +249,6 @@ window.addEventListener("load", () => {
     setTimeout(() => {
       loader.style.display = "none";
     }, 600);
-
   }, 1200);
 });
 </script>
