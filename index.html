@@ -3,160 +3,280 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KONG STYLE</title>
+<meta name="description" content="KONG STYLE: Calidad • Confiabilidad. Puebla, Zacatelco, Cholula. Modelos Exclusivos.">
+<title>KONG STYLE | Sucursales y Promociones</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --verde: #00ff88;
-}
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: #111;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
 
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    h1 {
+        margin-top: 30px;
+        font-size: 2.5rem;
+        text-align: center;
+    }
 
-body {
-  background: radial-gradient(circle, #031a03 0%, #000 100%);
-  font-family: 'Orbitron', sans-serif;
-  color: var(--verde);
-}
+    /* Promociones al inicio */
+    .promos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 30px 0;
+    }
 
-/* GRID FONDO */
-body::before {
-  content:"";
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:
-    linear-gradient(rgba(0,255,100,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,100,0.05) 1px, transparent 1px);
-  background-size:40px 40px;
-  z-index:0;
-}
+    .promos img {
+        width: 300px;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
 
-/* PROMOS */
-.promos {
-  padding:60px 20px;
-  text-align:center;
-  position:relative;
-  z-index:1;
-}
+    .promos img:hover {
+        transform: scale(1.05);
+    }
 
-.cards {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+    /* Botones sucursales */
+    .buttons-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 40px 10px;
+        gap: 20px;
+    }
 
-.promo-card {
-  border-radius:15px;
-  overflow:hidden;
-  backdrop-filter: blur(10px);
-  border:1px solid rgba(0,255,136,0.2);
-  transition:0.4s;
-}
+    .btn-sucursal {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        padding: 20px 40px;
+        font-size: 1.2rem;
+        color: #fff;
+        text-decoration: none;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
 
-.promo-card img {
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  opacity:0.9;
-}
+    .btn-sucursal::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(45deg);
+        transition: all 0.5s ease;
+    }
 
-.promo-card:hover {
-  transform:scale(1.03);
-  box-shadow:0 0 20px var(--verde);
-}
+    .btn-sucursal:hover::before {
+        top: -20%;
+        left: -20%;
+    }
 
-/* BOTONES SUCURSALES */
-.sucursales {
-  padding:60px 20px;
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  align-items:center;
-  position:relative;
-  z-index:1;
-}
+    .btn-sucursal:hover {
+        color: #fffa;
+        border-color: #fff;
+        box-shadow: 0 0 20px rgba(255,255,255,0.4);
+    }
 
-/* LIQUID GLASS */
-.btn {
-  width:280px;
-  padding:15px;
-  text-align:center;
-  color:var(--verde);
-  text-decoration:none;
-  border-radius:20px;
+    /* Modal general */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.8);
+    }
 
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(15px);
-  border:1px solid rgba(0,255,136,0.3);
+    .modal-content {
+        background-color: #222;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 15px;
+        text-align: center;
+        position: relative;
+    }
 
-  position:relative;
-  overflow:hidden;
-  transition:0.4s;
-}
+    .modal img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
 
-/* brillo líquido */
-.btn::before {
-  content:"";
-  position:absolute;
-  width:200%;
-  height:200%;
-  background: radial-gradient(circle, rgba(0,255,136,0.4) 0%, transparent 60%);
-  top:-50%;
-  left:-50%;
-  opacity:0;
-  transition:0.5s;
-}
+    .close {
+        color: #aaa;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-.btn:hover::before {
-  opacity:1;
-}
+    .close:hover {
+        color: #fff;
+    }
 
-.btn:hover {
-  transform:scale(1.05);
-  box-shadow:0 0 25px rgba(0,255,136,0.6);
-}
+    .modal-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .modal-buttons a {
+        padding: 12px 20px;
+        border-radius: 15px;
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(8px);
+    }
+
+    .modal-buttons a:hover {
+        background: rgba(255,255,255,0.3);
+        color: #fff;
+    }
 </style>
 </head>
-
 <body>
 
-<!-- PROMOS PRIMERO -->
-<section class="promos">
-  <h2>🔥 PROMOS</h2>
+<h1>KONG STYLE | Novedades y Sucursales</h1>
 
-  <div class="cards">
-    <div class="promo-card">
-      <img src="img/promo1.webp">
+<!-- Promociones al inicio -->
+<div class="promos">
+    <img src="promo1.webp" alt="Promoción 1" class="promo-img" data-modal="modal-promo1">
+    <img src="promo2.webp" alt="Promoción 2" class="promo-img" data-modal="modal-promo2">
+</div>
+
+<!-- Botones sucursales -->
+<div class="buttons-container">
+    <a href="#" class="btn-sucursal" id="btn-puebla">Puebla</a>
+    <a href="#" class="btn-sucursal" id="btn-zacatelco">Zacatelco</a>
+    <a href="#" class="btn-sucursal" id="btn-cholula">Cholula</a>
+</div>
+
+<!-- Modales Promociones -->
+<div id="modal-promo1" class="modal">
+    <div class="modal-content">
+        <span class="close" data-close="modal-promo1">&times;</span>
+        <img src="promo1.webp" alt="Promoción 1 Grande">
     </div>
+</div>
 
-    <div class="promo-card">
-      <img src="img/promo2.webp">
+<div id="modal-promo2" class="modal">
+    <div class="modal-content">
+        <span class="close" data-close="modal-promo2">&times;</span>
+        <img src="promo2.webp" alt="Promoción 2 Grande">
     </div>
-  </div>
-</section>
+</div>
 
-<!-- SUCURSALES DIRECTAS -->
-<section class="sucursales">
+<!-- Modales Sucursales -->
+<!-- Puebla -->
+<div id="modal-puebla" class="modal">
+    <div class="modal-content">
+        <span class="close" data-close="modal-puebla">&times;</span>
+        <img src="https://via.placeholder.com/400x250?text=Puebla" alt="Sucursal Puebla">
+        <p>Visítanos en nuestra sucursal Puebla:</p>
+        <div class="modal-buttons">
+            <a href="tel:+522221171466">Llamar: +52 222 117 1466</a>
+            <a href="https://www.instagram.com/kong_stylemx?igsh=MWIxNXp1ZGswbWl0cA==" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@ks.pue?_r=1&_t=ZS-95L5lIUj4y0" target="_blank">TikTok</a>
+            <a href="https://maps.app.goo.gl/8cQjJ85U1VzuArv4A?g_st=ac" target="_blank">Google Maps</a>
+        </div>
+    </div>
+</div>
 
-  <a class="btn" href="https://wa.me/522463335286" target="_blank">
-    ZACATELCO
-  </a>
+<!-- Zacatelco -->
+<div id="modal-zacatelco" class="modal">
+    <div class="modal-content">
+        <span class="close" data-close="modal-zacatelco">&times;</span>
+        <img src="https://via.placeholder.com/400x250?text=Zacatelco" alt="Sucursal Zacatelco">
+        <p>Visítanos en nuestra sucursal Zacatelco:</p>
+        <div class="modal-buttons">
+            <a href="tel:+2463335286">Llamar: 246 333 5286</a>
+            <a href="https://www.instagram.com/kong_styletlax?igsh=MTN4Z2R0amU3N3J1cg==" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@kstlax?_r=1&_t=ZS-95L5p4fVaHA" target="_blank">TikTok</a>
+            <a href="https://maps.app.goo.gl/zW8jTXsj2eYMwGYY8" target="_blank">Google Maps</a>
+        </div>
+    </div>
+</div>
 
-  <a class="btn" href="https://wa.me/522221171466" target="_blank">
-    PUEBLA
-  </a>
+<!-- Cholula -->
+<div id="modal-cholula" class="modal">
+    <div class="modal-content">
+        <span class="close" data-close="modal-cholula">&times;</span>
+        <img src="https://via.placeholder.com/400x250?text=Cholula" alt="Sucursal Cholula">
+        <p>Visítanos en nuestra sucursal Cholula:</p>
+        <div class="modal-buttons">
+            <a href="https://www.instagram.com/kong_stylemx?igsh=MWIxNXp1ZGswbWl0cA==" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@cholukong?_r=1&_t=ZS-95KHK6lQIWf" target="_blank">TikTok</a>
+            <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9" target="_blank">Google Maps</a>
+        </div>
+    </div>
+</div>
 
-  <a class="btn" href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9" target="_blank">
-    CHOLULA
-  </a>
+<script>
+    // Abrir modal sucursales
+    const modals = document.querySelectorAll('.modal');
+    const buttons = document.querySelectorAll('.btn-sucursal');
+    const closes = document.querySelectorAll('.close');
 
-</section>
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = btn.id.replace('btn', 'modal');
+            const modal = document.getElementById(id.toLowerCase());
+            if(modal) modal.style.display = 'block';
+        });
+    });
+
+    // Abrir modal promociones
+    const promoImgs = document.querySelectorAll('.promo-img');
+    promoImgs.forEach(img => {
+        img.addEventListener('click', () => {
+            const modalId = img.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if(modal) modal.style.display = 'block';
+        });
+    });
+
+    // Cerrar modales
+    closes.forEach(span => {
+        span.addEventListener('click', () => {
+            const modal = document.getElementById(span.getAttribute('data-close'));
+            modal.style.display = 'none';
+        });
+    });
+
+    window.onclick = function(event) {
+        modals.forEach(modal => {
+            if(event.target == modal) modal.style.display = "none";
+        });
+    }
+</script>
 
 </body>
-</html> 
+</html>
