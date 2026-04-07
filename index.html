@@ -5,61 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kong Style</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --verde: #6fae7b;
-  --verde-oscuro: #3e6f4a;
-  --negro: #0e0e0e;
-  --gris: #1a1a1a;
+  --verde: #00ff88;
+  --verde-oscuro: #00c96b;
+  --negro: #050505;
+  --gris: #121212;
 }
+
+/* ANIMACIONES */
 
 @keyframes float {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
 
-@keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+@keyframes glow {
+  0%,100% { filter: drop-shadow(0 0 6px rgba(0,255,136,0.4)); }
+  50% { filter: drop-shadow(0 0 14px rgba(0,255,136,0.7)); }
 }
 
-@keyframes fadeScaleIn {
-  from { opacity: 0; transform: scale(0.92); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes smoke {
+  0% { transform: translateY(0); opacity: 0.3; }
+  100% { transform: translateY(-20px); opacity: 0; }
 }
 
-@keyframes slideFocusIn {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
+/* GENERALES */
 
 body {
   margin: 0;
   min-height: 100vh;
   background: url('fondo-kong.jpg') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   color: #f1f1f1;
 }
 
 .overlay {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.75);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -69,77 +54,93 @@ body {
 .container {
   text-align: center;
   padding: 20px;
-  max-width: 420px;
+  max-width: 380px;
   width: 100%;
 }
 
-.page-enter {
-  animation: fadeScaleIn 1.1s ease forwards;
-}
-
-.title-enter {
-  animation: slideFocusIn 0.9s ease forwards;
-  animation-delay: 0.3s;
-  opacity: 0;
-}
+/* LOGO */
 
 .mascota {
-  width: 190px;
-  animation: float 3s ease-in-out infinite;
+  width: 170px;
+  animation: float 3s ease-in-out infinite, glow 2.5s ease-in-out infinite;
+  position: relative;
 }
+
+/* humo */
+.mascota::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(0,255,136,0.15), transparent);
+  animation: smoke 2s infinite;
+}
+
+/* TEXTO */
 
 h1 {
   margin: 10px 0 5px;
-  font-size: 2.6em;
-  letter-spacing: 1px;
+  font-size: 2.3em;
+  letter-spacing: 2px;
   color: var(--verde);
+  text-shadow: 0 0 10px rgba(0,255,136,0.5);
+  font-family: 'Playfair Display', serif;
 }
 
 .subtitle {
-  font-size: 0.95em;
-  opacity: 0.75;
-  margin-bottom: 35px;
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin-bottom: 28px;
+  letter-spacing: 1px;
 }
+
+/* BOTONES */
 
 .btn {
   display: block;
-  margin: 18px auto;
-  padding: 16px;
+  margin: 12px auto;
+  padding: 12px;
   width: 100%;
-  max-width: 300px;
+  max-width: 260px;
   background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
-  color: #0b0b0b;
+  color: #000;
   font-weight: 600;
-  border-radius: 35px;
+  border-radius: 25px;
   border: none;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+  transition: all 0.25s ease;
 }
 
 .btn:hover {
-  transform: scale(1.04);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(0,255,136,0.6);
 }
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* NOTAS */
 
 .notes {
-  margin-top: 30px;
-  font-size: 0.85em;
-  opacity: 0.75;
-  line-height: 1.6;
+  margin-top: 25px;
+  font-size: 0.75em;
+  opacity: 0.7;
 }
 
-.notes p {
-  margin: 6px 0;
-}
+/* MODAL */
 
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
 .modal.show {
@@ -148,43 +149,43 @@ h1 {
 
 .modal-content {
   background: var(--negro);
-  padding: 26px;
-  border-radius: 22px;
+  padding: 22px;
+  border-radius: 18px;
   width: 90%;
-  max-width: 360px;
-  animation: modalIn 0.35s ease;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+  max-width: 320px;
+  box-shadow: 0 0 25px rgba(0,255,136,0.15);
 }
 
 .modal-content h2 {
-  margin-bottom: 18px;
   color: var(--verde);
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
+
+/* TARJETAS */
 
 .card {
   background: var(--gris);
-  padding: 14px;
-  border-radius: 14px;
-  margin-bottom: 12px;
-  transition: background 0.25s ease, transform 0.25s ease;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: 0.2s;
 }
 
 .card:hover {
-  background: #202020;
-  transform: translateY(-2px);
+  transform: scale(1.03);
+  background: #1c1c1c;
 }
 
 .card a {
-  color: #cfe6d4;
+  color: #d4ffe7;
   text-decoration: none;
-  font-weight: 500;
+  font-size: 0.85em;
 }
 
 .close {
-  margin-top: 16px;
-  font-size: 0.9em;
-  color: #b57a7a;
+  margin-top: 12px;
+  font-size: 0.75em;
+  color: #888;
   cursor: pointer;
 }
 </style>
@@ -192,19 +193,19 @@ h1 {
 
 <body>
 <div class="overlay">
-  <div class="container page-enter">
+  <div class="container">
 
-    <img src="kongg.png" class="mascota" alt="Kong Style">
+    <img src="kongg.png" class="mascota">
 
-    <h1 class="title-enter">KONG STYLE</h1>
+    <h1>KONG STYLE</h1>
     <div class="subtitle">High Unisex Streetwear</div>
 
-    <button class="btn" onclick="openModal('zacatelco')">Sucursal Zacatelco</button>
-    <button class="btn" onclick="openModal('puebla')">Sucursal China Poblana</button>
-    <button class="btn" onclick="openModal('cholula')">Sucursal Cholula</button>
+    <button class="btn" onclick="openModal('zacatelco')">Zacatelco</button>
+    <button class="btn" onclick="openModal('puebla')">China Poblana</button>
+    <button class="btn" onclick="openModal('cholula')">Cholula</button>
 
     <div class="notes">
-      <p>ℹ️ Haz clic en los enlaces para más información</p>
+      <p>ℹ️ Más info en los enlaces</p>
       <p>🛍️ Mayoreo y menudeo</p>
       <p>✔️ Originales y G5</p>
     </div>
@@ -212,47 +213,37 @@ h1 {
   </div>
 </div>
 
-<!-- MODAL ZACATELCO -->
+<!-- ZACATELCO -->
 <div id="zacatelco" class="modal">
   <div class="modal-content">
     <h2>Zacatelco</h2>
-    <div class="card">
-  <a href="https://wa.me/522463335286" target="_blank">💬 WhatsApp: +52 246 333 5286</a>
-    </div>
-    <div class="card"><a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" target="_blank">📍 Ver en Maps</a></div>
-    <div class="card"><a href="https://www.instagram.com/kong_styletlax" target="_blank">Instagram</a></div>
-    <div class="card"><a href="https://www.tiktok.com/@kstlax" target="_blank">TikTok</a></div>
+    <div class="card"><a href="https://wa.me/522463335286">WhatsApp</a></div>
+    <div class="card"><a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9">Maps</a></div>
+    <div class="card"><a href="https://www.instagram.com/kong_styletlax">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@kstlax">TikTok</a></div>
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
-<!-- MODAL PUEBLA -->
+<!-- PUEBLA -->
 <div id="puebla" class="modal">
   <div class="modal-content">
     <h2>China Poblana</h2>
-    <div class="card">
-  <a href="https://wa.me/522221171466" target="_blank">💬 WhatsApp: +52 222 117 1466</a>
-    </div>
-    <div class="card"><a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" target="_blank">📍 Ver en Maps</a></div>
-    <div class="card"><a href="https://www.instagram.com/kong_stylemx" target="_blank">Instagram</a></div>
-    <div class="card"><a href="https://www.tiktok.com/@ks.pue" target="_blank">TikTok</a></div>
+    <div class="card"><a href="https://wa.me/522221171466">WhatsApp</a></div>
+    <div class="card"><a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7">Maps</a></div>
+    <div class="card"><a href="https://www.instagram.com/kong_stylemx">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@ks.pue">TikTok</a></div>
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
-<!-- MODAL CHOLULA -->
+<!-- CHOLULA -->
 <div id="cholula" class="modal">
   <div class="modal-content">
     <h2>Cholula</h2>
-
-    <div class="card">
-      <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9" target="_blank">📍 Ver en Maps</a>
-    </div>
-
-    <div class="card">
-      <a href="https://www.tiktok.com/@cholukong?_r=1&_t=ZS-95KHK6lQIWf" target="_blank">TikTok</a>
-    </div>
-
+    <div class="card"><a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9">Maps</a></div>
+    <div class="card"><a href="https://www.instagram.com/kong_stylemx">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@cholukong?_r=1&_t=ZS-95KHK6lQIWf">TikTok</a></div>
     <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
