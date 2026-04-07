@@ -20,6 +20,8 @@
 /* ===== BASE ===== */
 
 body {
+  opacity:0;
+  transition: opacity 0.6 ease;
   margin: 0;
   min-height: 100vh;
   background: url('fondo-kong.jpg') no-repeat center center fixed;
@@ -27,13 +29,17 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: var(--blanco);
 }
+  
+  body.loaded  {
+    opacity: 1;
+  }
+    
+    
 
 .overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(5,5,5,0.85),
-    rgba(5,5,5,0.95)
-  );
+  background: rgba(0,0,0,0.85),
+  backdrop-filter: blur(6px);
+  
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -83,9 +89,7 @@ h1 {
   font-size: 2.2em;
   color: var(--verde);
   letter-spacing: 2px;
-  text-shadow: 0 0 12px rgba(0,255,136,0.5);
-  font-family: 'Playfair Display', serif;
-}
+  text-shadow:  0 4px 18px rgba(0,0,0,0.6);
 
 .subtitle {
   font-size: 0.8em;
@@ -111,11 +115,11 @@ h1 {
   transition: all 0.25s ease;
 }
 
-.btn:hover {
+.btn:active {
   background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
   color: #000;
   box-shadow: 0 0 20px rgba(0,255,136,0.5);
-  transform: scale(1.05);
+  transform: scale(0.97);
 }
 
 /* ===== NOTAS ===== */
@@ -248,7 +252,7 @@ h1 {
     <div class="subtitle">High Unisex Streetwear</div>
     
 <div class="card promo-card">
-  <img src="img/promo2.webp" alt="Promo Abril Hot">
+  <img url="img/promo2.webp" alt="Promo Abril Hot">
   <div class="promo-info">
     <h3>🔥 Abril Hot</h3>
     <p>10% de descuento en toda la original</p>
@@ -257,7 +261,7 @@ h1 {
 </div>
 
 <div class="card promo-card">
-  <img src="img/promo1.webp" alt="Promo 2 gorras">
+  <img url="img/promo1.webp" alt="Promo 2 gorras">
   <div class="promo-info">
     <h3>🧢 2 x $1400</h3>
     <p>Arma tu combo</p>
