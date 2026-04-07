@@ -3,169 +3,322 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KONG STYLE</title>
+<title>Kong Style</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
+  --negro: #050505;
+  --negro-sec: #0f0f0f;
+  --gris: #1c1c1c;
+  --blanco: #ffffff;
   --verde: #00ff88;
+  --verde-oscuro: #00b86b;
 }
 
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+/* ===== BASE ===== */
 
 body {
-  background: radial-gradient(circle, #031a03 0%, #000 100%);
-  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background: url('fondo-kong.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--blanco);
+}
+
+.overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(5,5,5,0.85),
+    rgba(5,5,5,0.95)
+  );
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== HERO ===== */
+
+.container {
+  text-align: center;
+  max-width: 420px;
+  padding: 20px;
+  position: relative;
+}
+
+/* TEXTO GIGANTE DE FONDO */
+.big-text {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5.5em;
+  font-weight: 900;
+  color: rgba(255,255,255,0.04);
+  letter-spacing: 6px;
+  pointer-events: none;
+}
+
+/* LOGO */
+
+.mascota {
+  width: 160px;
+  margin-top: 40px;
+  filter: drop-shadow(0 0 12px rgba(0,255,136,0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* TITULOS */
+
+h1 {
+  margin: 10px 0 5px;
+  font-size: 2.2em;
   color: var(--verde);
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(0,255,136,0.5);
+  font-family: 'Playfair Display', serif;
 }
 
-/* GRID FONDO */
-body::before {
-  content:"";
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:
-    linear-gradient(rgba(0,255,100,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,100,0.05) 1px, transparent 1px);
-  background-size:40px 40px;
-  z-index:0;
+.subtitle {
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin-bottom: 25px;
 }
 
-/* PROMOS */
-.promos {
-  padding:60px 20px;
-  text-align:center;
-  position:relative;
-  z-index:1;
-}
+/* ===== BOTONES ===== */
 
-.cards {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.promo-card {
-  border-radius:15px;
-  overflow:hidden;
-  backdrop-filter: blur(10px);
-  border:1px solid rgba(0,255,136,0.2);
-  transition:0.4s;
-}
-
-.promo-card img {
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  opacity:0.9;
-}
-
-.promo-card:hover {
-  transform:scale(1.03);
-  box-shadow:0 0 20px var(--verde);
-}
-
-/* LIQUID GLASS */
 .btn {
-  width:280px;
-  padding:15px;
-  text-align:center;
-  color:var(--verde);
-  text-decoration:none;
-  border-radius:20px;
-
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(15px);
-  border:1px solid rgba(0,255,136,0.3);
-
-  position:relative;
-  overflow:hidden;
-  transition:0.4s;
-}
-
-/* brillo líquido */
-.btn::before {
-  content:"";
-  position:absolute;
-  width:200%;
-  height:200%;
-  background: radial-gradient(circle, rgba(0,255,136,0.4) 0%, transparent 60%);
-  top:-50%;
-  left:-50%;
-  opacity:0;
-  transition:0.5s;
-}
-
-.btn:hover::before {
-  opacity:1;
+  display: block;
+  margin: 10px auto;
+  padding: 12px;
+  width: 100%;
+  max-width: 260px;
+  background: var(--negro-sec);
+  border: 1px solid rgba(0,255,136,0.3);
+  color: var(--blanco);
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+  transition: all 0.25s ease;
 }
 
 .btn:hover {
-  transform:scale(1.05);
-  box-shadow:0 0 25px rgba(0,255,136,0.6);
+  background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+  color: #000;
+  box-shadow: 0 0 20px rgba(0,255,136,0.5);
+  transform: scale(1.05);
+}
+
+/* ===== NOTAS ===== */
+
+.notes {
+  margin-top: 20px;
+  font-size: 0.75em;
+  opacity: 0.7;
+}
+
+/* ===== MODAL ===== */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--negro);
+  padding: 22px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 320px;
+  border: 1px solid rgba(0,255,136,0.2);
+}
+
+.modal-content h2 {
+  color: var(--verde);
+}
+
+/* TARJETAS */
+.promo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0f0f0f;
+  border: 1px solid rgba(0,255,120,0.2);
+  transition: 0.3s;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.promo-card:hover img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.promo-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.promo-info h3 {
+  color: #00ff88;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.promo-info p {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.promo-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 20px;
+  background: #00ff88;
+  color: #000;
+  font-weight: bold;
+}    
+  
+.card {
+  background: var(--gris);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  background: #252525;
+  transform: scale(1.03);
+}
+
+.card a {
+  color: #d4ffe7;
+  text-decoration: none;
+  font-size: 0.85em;
+}
+
+.close {
+  margin-top: 10px;
+  font-size: 0.75em;
+  color: #888;
+  cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PROMOS PRIMERO -->
-<section class="promos">
-  <h2>🔥 PROMOS</h2>
+<div class="overlay">
+  <div class="container">
 
-  <div class="cards">
-    <div class="promo-card">
-      <img src="img/promo1.webp">
-    </div>
+    <div class="big-text">KONG</div>
 
-    <div class="promo-card">
-      <img src="img/promo2.webp">
-    </div>
+    <img src="kongg.png" class="mascota">
+
+    <h1>KONG STYLE</h1>
+    <div class="subtitle">High Unisex Streetwear</div>
+    
+<div class="card promo-card">
+  <img src="img/promo2.webp" alt="Promo Abril Hot">
+  <div class="promo-info">
+    <h3>🔥 Abril Hot</h3>
+    <p>10% de descuento en toda la original</p>
+    <span class="promo-tag">Disponible</span>
   </div>
-</section>
+</div>
 
-<!-- MODALS -->
+<div class="card promo-card">
+  <img src="img/promo1.webp" alt="Promo 2 gorras">
+  <div class="promo-info">
+    <h3>🧢 2 x $1400</h3>
+    <p>Arma tu combo</p>
+    <span class="promo-tag">Solo Abril</span>
+  </div>
+</div>
+    
+    <button class="btn" onclick="openModal('zacatelco')">Zacatelco</button>
+    <button class="btn" onclick="openModal('puebla')">China Poblana</button>
+    <button class="btn" onclick="openModal('cholula')">Cholula</button>
+
+    <div class="notes">
+      <p>ℹ️ Más info en los enlaces</p>
+      <p>🛍️ Mayoreo y menudeo</p>
+      <p>✔️ Originales y G5</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ZACATELCO -->
 <div id="zacatelco" class="modal">
   <div class="modal-content">
-    <h2>ZACATELCO</h2>
-    <a href="https://wa.me/522463335286" target="_blank">WHATSAPP</a>
-    <a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9" target="_blank">MAPS</a>
-    <a href="https://www.instagram.com/kong_styletlax" target="_blank">INSTAGRAM</a>
-    <button onclick="closeModal()">CLOSE</button>
+    <h2>Zacatelco</h2>
+    <div class="card"><a href="https://wa.me/522463335286">WhatsApp</a></div>
+    <div class="card"><a href="https://maps.app.goo.gl/Krjpk4uEXftTmZTT9">Maps</a></div>
+    <div class="card"><a href="https://www.instagram.com/kong_styletlax">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@kstlax">TikTok</a></div>
+    <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
+<!-- PUEBLA -->
 <div id="puebla" class="modal">
   <div class="modal-content">
-    <h2>PUEBLA</h2>
-    <a href="https://wa.me/522221171466" target="_blank">WHATSAPP</a>
-    <a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7" target="_blank">MAPS</a>
-    <a href="https://www.instagram.com/kong_stylemx" target="_blank">INSTAGRAM</a>
-    <button onclick="closeModal()">CLOSE</button>
+    <h2>China Poblana</h2>
+    <div class="card"><a href="https://wa.me/522221171466">WhatsApp</a></div>
+    <div class="card"><a href="https://maps.app.goo.gl/1qL6vZrHGEgwBD6j7">Maps</a></div>
+    <div class="card"><a href="https://www.instagram.com/kong_stylemx">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@ks.pue">TikTok</a></div>
+    <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
+<!-- CHOLULA -->
 <div id="cholula" class="modal">
   <div class="modal-content">
-    <h2>CHOLULA</h2>
-    <a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9" target="_blank">MAPS</a>
-    <a href="https://www.instagram.com/kong_stylemx" target="_blank">INSTAGRAM</a>
-    <button onclick="closeModal()">CLOSE</button>
+    <h2>Cholula</h2>
+    <div class="card"><a href="https://maps.app.goo.gl/5wtao2j7wzBmtDLv9">Maps</a></div>
+    <div class="card"><a href="https://www.instagram.com/kong_stylemx">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@cholukong?_r=1&_t=ZS-95KHK6lQIWf">TikTok</a></div>
+    <div class="close" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
 <script>
-function openModal(id){
+function openModal(id) {
   document.getElementById(id).classList.add('show');
 }
 
-function closeModal(){
+function closeModal() {
   document.querySelectorAll('.modal').forEach(m => m.classList.remove('show'));
 }
 </script>
