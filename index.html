@@ -501,16 +501,48 @@ body {
       </div>
     </div>
 
-    <!-- Card 4 - Extra como ref -->
-    <div class="collection-card">
-      <div class="collection-overlay">
-        <h3 class="collection-title">PROMOCIONES</h3>
-        <div class="collection-links">
-          <a href="#" class="collection-link" onclick="openModal('puebla')">Coming Soon</a>
-        </div>
-      </div>
+    <!-- Reemplaza SOLO esta card en tu código (líneas de collections-grid) -->
+<div class="collection-card promo-card" style="height: 600px; display: flex; flex-direction: column;">
+  <!-- Imagen 1 - Promo Principal -->
+  <div class="collection-image promo-main" style="
+    height: 60%; 
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('promo1.webp');
+    display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--verde-premium); font-weight: 900;
+  ">
+    PROMO EXCLUSIVA
+  </div>
+  
+  <!-- Imagen 2 - Detalle/Sale -->
+  <div class="collection-image promo-sub" style="
+    height: 40%; 
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('promo2.webp');
+    padding: 30px; text-align: center; display: flex; flex-direction: column; justify-content: center;
+  ">
+    <div style="font-size: 2.5rem; font-weight: 900; color: var(--verde-premium); margin-bottom: 10px;">-40%</div>
+    <div style="font-size: 1.2rem; opacity: 0.9;">LIMITED STOCK</div>
+  </div>
+  
+  <!-- Overlay enlaces -->
+  <div class="collection-overlay" style="padding: 25px;">
+    <h3 class="collection-title" style="margin-bottom: 20px;">PROMO DROP</h3>
+    <div class="collection-links">
+      <a href="https://wa.me/522221171466" class="collection-link">WhatsApp</a>
+      <a href="https://www.instagram.com/kong_stylemx" class="collection-link">Instagram</a>
     </div>
   </div>
+</div> .promo-card:hover {
+  border: 3px solid var(--verde-premium) !important;
+  box-shadow: 0 0 80px rgba(0,255,136,0.5) !important;
+}
+
+.promo-card:hover .promo-main {
+  transform: scale(1.05);
+  background-image: linear-gradient(rgba(0,255,136,0.2), rgba(0,0,0,0.6)), url('promo1.webp') !important;
+}
+
+.promo-card:hover .promo-sub {
+  background-image: linear-gradient(rgba(0,255,136,0.3), rgba(0,0,0,0.7)), url('promo2.webp') !important;
+}
 </section>
 
 <!-- FOOTER -->
